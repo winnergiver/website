@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Адвокат Зверьков Иван Сергеевич — Смоленск</title>
+  <meta name="description" content="Адвокат в Смоленске. Уголовные, гражданские, арбитражные и семейные дела. Телефон +7 910 781-22-29.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0E2A22;
+      --bg2: #133329;
+      --ink: #F3EEE3;
+      --soft: #A9B8AE;
+      --brass: #D2AE6D;
+      --line: rgba(243, 238, 227, 0.16);
+
+      --serif: 'Cormorant Garamond', 'Times New Roman', serif;
+      --sans: 'Onest', system-ui, sans-serif;
+
+      box-sizing: border-box;
+      padding-top: env(safe-area-inset-top, 0px);
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    /* Если у человека в системе включена светлая тема, показываем светлую версию сайта */
+    @media (prefers-color-scheme: light) {
+      :root:not([data-theme="dark"]) {
+        --bg: #F3EEE3;
+        --bg2: #EAE3D3;
+        --ink: #123026;
+        --soft: #55675D;
+        --brass: #8A6A2B;
+        --line: rgba(18, 48, 38, 0.18);
+      }
+    }
+
+    :root[data-theme="light"] {
+      --bg: #F3EEE3;
+      --bg2: #EAE3D3;
+      --ink: #123026;
+      --soft: #55675D;
+      --brass: #8A6A2B;
+      --line: rgba(18, 48, 38, 0.18);
+    }
+
+    :root[data-theme="dark"] {
+      --bg: #0E2A22;
+      --bg2: #133329;
+      --ink: #F3EEE3;
+      --soft: #A9B8AE;
+      --brass: #D2AE6D;
+      --line: rgba(243, 238, 227, 0.16);
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-padding-top: calc(72px + env(safe-area-inset-top, 0px));
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font: 400 17px/1.6 var(--sans);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--brass);
+      outline-offset: 3px;
+    }
+
+    .wrap {
+      width: min(1120px, 100% - 48px);
+      margin-inline: auto;
+    }
+    .nav {
+      position: sticky;
+      top: env(safe-area-inset-top, 0px);
+      z-index: 10;
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s;
+    }
+
+    .nav.stuck {
+      border-color: var(--line);
+    }
+
+    .nav .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      gap: 16px;
+    }
+
+    .logo {
+      font: 600 22px/1 var(--serif);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+
+    .links {
+      display: flex;
+      gap: 28px;
+      font-size: 14.5px;
+      color: var(--soft);
+    }
+
+    .links a {
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .links a:hover {
+      color: var(--ink);
+    }
+
+    .call {
+      font-size: 14.5px;
+      font-weight: 500;
+      text-decoration: none;
+      padding: 9px 18px;
+      border: 1px solid var(--brass);
+      color: var(--brass);
+      border-radius: 999px;
+      transition: background 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+
+    .call:hover {
+      background: var(--brass);
+      color: var(--bg);
+    }
+
+    /* Первый экран: то что человек видит сразу, как зашёл на сайт */
+    .hero {
+      position: relative;
+      padding: clamp(56px, 11vh, 120px) 0 clamp(64px, 10vh, 110px);
+      overflow: hidden;
+    }
+
+    .hero .sign {
+      position: absolute;
+      right: -2vw;
+      top: -6vw;
+      font: 500 clamp(300px, 46vw, 640px)/1 var(--serif);
+      color: var(--brass);
+      opacity: 0.09;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .hero .role {
+      color: var(--brass);
+      font-size: 15px;
+      font-weight: 500;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font: 500 clamp(56px, 12vw, 168px)/0.92 var(--serif);
+      letter-spacing: -0.02em;
+    }
+
+    .hero h1 span {
+      display: block;
+      font-size: 0.38em;
+      line-height: 1.15;
+      margin-top: 0.28em;
+      letter-spacing: 0;
+      color: var(--soft);
+      font-weight: 500;
+    }
+
+    .lead {
+      max-width: 34em;
+      margin-top: 34px;
+      font-size: clamp(17px, 2vw, 20px);
+      color: var(--soft);
+    }
+
+    .cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 22px;
+      align-items: center;
+      margin-top: 40px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--brass);
+      color: #0E2A22;
+      text-decoration: none;
+      font: 600 17px var(--sans);
+      padding: 16px 28px;
+      border-radius: 6px;
+      border: 0;
+      cursor: pointer;
+      transition: transform 0.2s, filter 0.2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.07);
+    }
+
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: default;
+      transform: none;
+      filter: none;
+    }
+
+    .hours {
+      font-size: 14.5px;
+      color: var(--soft);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hours i {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #4FD08F;
+      box-shadow: 0 0 0 4px rgba(79, 208, 143, 0.18);
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .hero .wrap > * {
+        animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+      }
+      .hero .wrap > *:nth-child(2) { animation-delay: 0.1s; }
+      .hero .wrap > *:nth-child(3) { animation-delay: 0.22s; }
+      .hero .wrap > *:nth-child(4) { animation-delay: 0.34s; }
+
+      @keyframes rise {
+        from { opacity: 0; transform: translateY(18px); }
+        to   { opacity: 1; transform: none; }
+      }
+    }
+
+    /* Общие стили для всех блоков страницы */
+    section.s {
+      padding: clamp(64px, 10vw, 120px) 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .s h2 {
+      font: 500 clamp(36px, 5vw, 60px)/1.05 var(--serif);
+      letter-spacing: -0.01em;
+      max-width: 14em;
+    }
+
+    .s .sub {
+      color: var(--soft);
+      margin-top: 16px;
+      max-width: 36em;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+      gap: clamp(32px, 6vw, 96px);
+    }
+
+    @media (max-width: 860px) {
+      .grid  { grid-template-columns: 1fr; }
+      .links { display: none; }
+    }
+
+    /* Блок С чем я работаю */
+    .acc {
+      border-top: 1px solid var(--line);
+    }
+
+    .item {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .item button {
+      all: unset;
+      box-sizing: border-box;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 24px 0;
+      cursor: pointer;
+      font: 500 clamp(24px, 3vw, 32px)/1.15 var(--serif);
+    }
+
+    .item button:focus-visible {
+      outline: 2px solid var(--brass);
+      outline-offset: 2px;
+    }
+
+    .plus {
+      flex: none;
+      width: 30px;
+      height: 30px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      position: relative;
+      transition: transform 0.3s, background 0.3s, border-color 0.3s;
+    }
+
+    .plus::before,
+    .plus::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 12px;
+      height: 1.5px;
+      background: var(--ink);
+      transform: translate(-50%, -50%);
+      transition: transform 0.3s;
+    }
+
+    .plus::after {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+
+    .item.open .plus {
+      background: var(--brass);
+      border-color: var(--brass);
+    }
+
+    .item.open .plus::before,
+    .item.open .plus::after {
+      background: #0E2A22;
+    }
+
+    .item.open .plus::after {
+      transform: translate(-50%, -50%) rotate(0);
+    }
+    /*плавное раскрытие*/
+    .panel {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.35s ease;
+    }
+
+    .item.open .panel {
+      grid-template-rows: 1fr;
+    }
+
+    .panel > div {
+      overflow: hidden;
+    }
+
+    .panel p {
+      color: var(--soft);
+      padding-bottom: 26px;
+      max-width: 34em;
+    }
+
+    /* Этапы работы - нумерованные шаги по порядку */
+    .steps {
+      list-style: none;
+      counter-reset: n;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin-top: 56px;
+      border-top: 1px solid var(--line);
+    }
+
+    .steps li {
+      counter-increment: n;
+      padding: 28px 24px 0 0;
+      position: relative;
+    }
+
+    .steps li::before {
+      content: counter(n);
+      position: absolute;
+      top: -15px;
+      left: 0;
+      width: 30px;
+      height: 30px;
+      background: var(--bg);
+      border: 1px solid var(--brass);
+      color: var(--brass);
+      border-radius: 50%;
+      font: 600 14px/28px var(--sans);
+      text-align: center;
+    }
+
+    .steps h3 {
+      font: 500 26px/1.15 var(--serif);
+      margin: 12px 0 8px;
+    }
+
+    .steps p {
+      color: var(--soft);
+      font-size: 15.5px;
+    }
+
+    @media (max-width: 860px) {
+      .steps {
+        grid-template-columns: 1fr;
+        border-top: 0;
+        border-left: 1px solid var(--line);
+        margin-left: 15px;
+      }
+      .steps li {
+        padding: 0 0 32px 36px;
+      }
+      .steps li::before {
+        top: 0;
+        left: -15px;
+      }
+      .steps h3 {
+        margin-top: 0;
+      }
+    }
+
+    /* Контакты и форма обращения */
+    .contact {
+      background: var(--bg2);
+    }
+
+    .big {
+      display: block;
+      font: 500 clamp(34px, 6vw, 76px)/1.05 var(--serif);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 10px;
+      margin: 28px 0 16px;
+      transition: color 0.2s, border-color 0.2s;
+      word-break: break-word;
+    }
+
+    .big:hover {
+      color: var(--brass);
+      border-color: var(--brass);
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 24px;
+      align-items: center;
+      color: var(--soft);
+      font-size: 15.5px;
+    }
+
+    .copy {
+      background: none;
+      border: 1px solid var(--line);
+      color: var(--ink);
+      padding: 8px 16px;
+      border-radius: 999px;
+      font: 500 14px var(--sans);
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+
+    .copy:hover {
+      border-color: var(--brass);
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+    }
+
+    label {
+      font-size: 14px;
+      color: var(--soft);
+      display: grid;
+      gap: 6px;
+    }
+
+    input,
+    textarea {
+      font: 400 16px var(--sans);
+      color: var(--ink);
+      background: transparent;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 13px 14px;
+      width: 100%;
+      transition: border-color 0.2s;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--brass);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .note {
+      font-size: 13px;
+      color: var(--soft);
+    }
+
+    .note.spaced {
+      margin-top: 18px;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 26px 0 36px;
+      font-size: 14px;
+      color: var(--soft);
+    }
+
+    footer .wrap {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="nav" id="nav">
+    <div class="wrap">
+      <a class="logo" href="#top">Зверьков И. С.</a>
+      <nav class="links" aria-label="Разделы">
+        <a href="#practice">Практика</a>
+        <a href="#process">Как работаем</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+      <a class="call" href="tel:+79107812229">+7 910 781-22-29</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="sign" aria-hidden="true">§</div>
+      <div class="wrap">
+        <p class="role">Адвокат в Смоленске</p>
+        <h1>Зверьков <span>Иван Сергеевич</span></h1>
+        <p class="lead">Защищаю права в уголовных, гражданских, арбитражных и семейных делах. Говорю по существу и отвечаю за результат.</p>
+        <div class="cta">
+          <a class="btn" href="tel:+79107812229">Позвонить +7 910 781-22-29</a>
+          <span class="hours"><i></i>на связи по будням, 9:00–20:00</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="s" id="practice">
+      <div class="wrap grid">
+        <div>
+          <h2>С чем я работаю</h2>
+          <p class="sub">Если вашего вопроса нет в списке, позвоните: подскажу, смогу ли помочь.</p>
+        </div>
+
+        <div class="acc">
+          <div class="item open">
+            <button type="button" aria-expanded="true">
+              <span>Уголовные дела</span>
+              <span class="plus" aria-hidden="true"></span>
+            </button>
+            <div class="panel"><div>
+              <p>Защита на следствии и в суде: от первого допроса до апелляции. Участвую с момента задержания, добиваюсь изменения меры пресечения.</p>
+            </div></div>
+          </div>
+
+          <div class="item">
+            <button type="button" aria-expanded="false">
+              <span>Гражданские споры</span>
+              <span class="plus" aria-hidden="true"></span>
+            </button>
+            <div class="panel"><div>
+              <p>Долги, наследство, залив квартиры, споры с застройщиком и банками. Готовлю иски и отзывы, представляю интересы в судах Смоленска и области.</p>
+            </div></div>
+          </div>
+
+          <div class="item">
+            <button type="button" aria-expanded="false">
+              <span>Арбитраж и бизнес</span>
+              <span class="plus" aria-hidden="true"></span>
+            </button>
+            <div class="panel"><div>
+              <p>Договоры, взыскание задолженности, споры с контрагентами. Сопровождаю предпринимателей до исполнения решения.</p>
+            </div></div>
+          </div>
+
+          <div class="item">
+            <button type="button" aria-expanded="false">
+              <span>Семейное право</span>
+              <span class="plus" aria-hidden="true"></span>
+            </button>
+            <div class="panel"><div>
+              <p>Развод, раздел имущества, алименты, порядок общения с детьми. Стараюсь договориться без лишних конфликтов, а если нужно, иду в суд.</p>
+            </div></div>
+          </div>
+
+          <div class="item">
+            <button type="button" aria-expanded="false">
+              <span>Недвижимость и земля</span>
+              <span class="plus" aria-hidden="true"></span>
+            </button>
+            <div class="panel"><div>
+              <p>Проверка сделок, споры о праве собственности, границы участков, выселение. Проверяю документы до подписания договора.</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="s" id="process">
+      <div class="wrap">
+        <h2>Как мы будем работать</h2>
+        <ol class="steps">
+          <li>
+            <h3>Звонок</h3>
+            <p>Коротко расскажите ситуацию. Скажу, есть ли у дела перспектива и что нужно подготовить.</p>
+          </li>
+          <li>
+            <h3>Консультация</h3>
+            <p>Изучаю документы и называю варианты действий, сроки и стоимость. Соглашение — письменное.</p>
+          </li>
+          <li>
+            <h3>Работа</h3>
+            <p>Веду дело сам: готовлю документы, участвую в заседаниях, держу вас в курсе.</p>
+          </li>
+          <li>
+            <h3>Результат</h3>
+            <p>Добиваюсь решения и помогаю его исполнить, если это необходимо.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="s contact" id="contacts">
+      <div class="wrap grid">
+        <div>
+          <h2>Расскажите о ситуации</h2>
+          <a class="big" href="tel:+79107812229">+7 910 781-22-29</a>
+          <div class="row">
+            <a href="mailto:zvrk-smlk@mail.ru">zvrk-smlk@mail.ru</a>
+            <button type="button" class="copy" id="copyBtn" aria-live="polite">Скопировать номер</button>
+          </div>
+          <p class="note spaced">Будни, 9:00–20:00. Конфиденциальность гарантирована адвокатской тайной.</p>
+        </div>
+
+        <form id="contactForm">
+          <label>Как к вам обращаться
+            <input type="text" name="name" autocomplete="name">
+          </label>
+          <label>Телефон
+            <input type="tel" name="phone" autocomplete="tel">
+          </label>
+          <label>Коротко о деле
+            <textarea name="text"></textarea>
+          </label>
+          <button type="submit" class="btn" id="sendBtn" disabled>Отправить на почту</button>
+          <p class="note">Откроется ваш почтовый клиент с готовым письмом.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© 2026 Адвокат Зверьков И. С., Смоленск</span>
+      <a href="mailto:zvrk-smlk@mail.ru">zvrk-smlk@mail.ru</a>
+    </div>
+  </footer>
+
+  <script>
+    var PHONE = '+7 910 781-22-29';
+    var EMAIL = 'zvrk-smlk@mail.ru';
+
+    // Как только страницу чуть прокрутили, под шапкой появляется тонкая линия, чтобы она не сливалась с текстом
+    var nav = document.getElementById('nav');
+
+    function updateNav() {
+      nav.classList.toggle('stuck', window.scrollY > 8);
+    }
+
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
+
+
+    // Раскрывающийся список: открываем нажатый пункт, а все остальные сворачиваем, чтобы открыт был только один
+    var items = document.querySelectorAll('.item');
+
+    items.forEach(function (item) {
+      var button = item.querySelector('button');
+
+      button.addEventListener('click', function () {
+        var wasOpen = item.classList.contains('open');
+
+        items.forEach(function (other) {
+          other.classList.remove('open');
+          other.querySelector('button').setAttribute('aria-expanded', 'false');
+        });
+
+        if (!wasOpen) {
+          item.classList.add('open');
+          button.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+
+    // Кнопка «Скопировать номер»: кладём телефон в буфер обмена и на пару секунд говорим об этом
+    var copyBtn = document.getElementById('copyBtn');
+
+    copyBtn.addEventListener('click', function () {
+      navigator.clipboard.writeText(PHONE).then(function () {
+        copyBtn.textContent = 'Номер скопирован';
+        setTimeout(function () {
+          copyBtn.textContent = 'Скопировать номер';
+        }, 2000);
+      }).catch(function () {
+        // Не вышло скопировать (например, браузер не дал доступ к буферу). Ничего страшного, просто оставляем кнопку как есть
+      });
+    });
+
+
+    // Форма обращения. Данные никуда не отправляются сами: по нажатию открывается почтовая программа посетителя с готовым письмом
+    var form = document.getElementById('contactForm');
+    var sendBtn = document.getElementById('sendBtn');
+
+    // Кнопка «Отправить» работает, только если человек написал телефон или хотя бы коротко описал дело
+    function updateSendBtn() {
+      var hasPhone = form.elements.phone.value.trim() !== '';
+      var hasText = form.elements.text.value.trim() !== '';
+      sendBtn.disabled = !(hasPhone || hasText);
+    }
+
+    form.addEventListener('input', updateSendBtn);
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      var body = 'Имя: ' + form.elements.name.value +
+                 '\nТелефон: ' + form.elements.phone.value +
+                 '\n\n' + form.elements.text.value;
+
+      window.location.href = 'mailto:' + EMAIL +
+        '?subject=' + encodeURIComponent('Обращение с сайта') +
+        '&body=' + encodeURIComponent(body);
+    });
+  </script>
+</body>
+</html>
